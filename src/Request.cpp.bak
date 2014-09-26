@@ -1,0 +1,76 @@
+#include <string>
+#include <iostream>
+#include <string.h>
+#include <unistd.h>
+
+using namespace std;
+
+
+class Request{
+    private: int conFd;
+             string uri;
+
+
+    public: //Request();
+            Request(int);
+            ~Request();
+            void parse();
+            string getUri();
+    private:void parseUri(string);
+};
+
+
+Request::Request(int fd){
+        conFd = fd;
+}
+
+
+
+void Request::parse(){
+    string strRequest;
+        int n = 0;
+        char buf[2048];
+        do{ 
+            memset(buf, 0, 2048);
+            n = read(conFd, buf, 48 );
+            cout << buf ;
+        }while(n != -1 && n != 0); 
+        
+        cout << endl << "---------------------------------------" << endl;
+        close(conFd);
+}
+
+void Request:: parseUri(string strHttpReq){
+    
+    int index1 = 0, index2 = 0;
+    index1 = strHttpReq.find(" ", 0);
+
+    if(string::npos != index1){
+        index2 = strHttpReq.find(" ", index1);
+        if(string::npos != index2 && index2 > index1){
+            
+            uri = strHttpReq.substr(index1 + 1, index2 - index1);
+            cout << "uri : " << uri << endl;
+        }
+    }
+}
+
+
+string Request::getUri(){
+    return uri;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

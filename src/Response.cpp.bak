@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+
+#include "Request.h"
+#include "HttpServer.h"
+
+using namespace std;
+
+
+
+class Response{
+
+    #define BUFFER_SIZE 1024
+    #define MAX_FILE_LEN 80 
+    private:
+        Request * pRequest;
+        int conFd;
+
+    public:
+        Response(int);
+        ~Response();
+        void setRequest(Request* );
+        void sendStaticResource();
+};
+
+
+Response::Response(int fd){
+    conFd = fd;
+}
+
+Response::~Response(){
+}
+
+void Response::setRequest(Request* req){
+    pRequest = req;
+}
+
+
+void Response::sendStaticResource(){
+    char fileBuffer[BUFFER_SIZE]; 
+    int fileFd = -1;
+    int n = 0;
+    string fileName(HttpServer::webRoot);
+
+    fileName.append(pRequest->getUri());
+    if(0 > (fileFd = open(fileName.c_str(), O_RDONLY)))
+        cerr << "open file error, fileFd = " << fileFd << endl;
+    
+    memset(fileBuffer, 0, BUFFER_SIZE);
+    n = read(fileFd, fileBuffer, BUFFER_SIZE);
+    n = write(fileFd, fileBuffer, n);
+
+
+    
+    
+}
+
