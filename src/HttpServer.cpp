@@ -16,6 +16,8 @@
 #include "HttpServer.h"
 #include "Request.h"
 #include "Response.h"
+#include "ServletProcessor.h"
+
 using namespace std;
 
 
@@ -54,8 +56,8 @@ void HttpServer::await(){
     listenFd =  socket(AF_INET, SOCK_STREAM, 0);
     bzero(&serverAddr, sizeof(serverAddr));
     serverAddr.sin_family = AF_INET;
-    //serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    serverAddr.sin_addr.s_addr = inet_addr("0.0.0.0");
+    serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    //serverAddr.sin_addr.s_addr = inet_addr("0.0.0.0");
     serverAddr.sin_port = htons(port);
 
     int recode = bind(listenFd, (struct sockaddr*)&serverAddr, sizeof(serverAddr));
@@ -76,7 +78,18 @@ void HttpServer::await(){
         
         Response mResponse(conFd);
         mResponse.setRequest(&mRequest);
-        mResponse.sendStaticResource();
+
+        if(0 == mRequest.getUri().find("/servlet/", 0)){
+            cout << "===========/servlet/===============" << endl;
+            ServletProcessor processor;
+            processor.process(&mRequest, &mResponse);
+
+        }else{
+            cout << "===========static resource===============" << endl;
+            mResponse.sendStaticResource();
+        }
+
+
         close(conFd);
 
         shutdown = (0 == mRequest.getUri().compare(SHUTDOWN_COMMAND));

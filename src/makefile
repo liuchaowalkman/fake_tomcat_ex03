@@ -16,11 +16,13 @@ OBJS_fullpath := $(addprefix $(OBJS_DIR)/, $(OBJS))
 #vpath %.cpp ../src/
 
 all:$(OBJS_fullpath)
-	g++ $(OBJS_fullpath)  -o $(target) 
+	@mkdir -p "$(target_dir)" 
+	g++ -ldl $(OBJS_fullpath)  -o $(target)  
+	@echo "done"
 
 $(OBJS_DIR)/%.o:%.cpp
-	g++ -c  $< -o $@
-
+	@mkdir -p "$(OBJS_DIR)" 
+	g++ -fPIC -c  $< -o $@ 
 
 
 

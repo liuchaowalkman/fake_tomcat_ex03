@@ -20,6 +20,7 @@ class Response{
         Response(int);
         ~Response();
         void setRequest(Request* );
+        int getWriter();
         void sendStaticResource();
 };
 

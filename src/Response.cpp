@@ -24,6 +24,10 @@ void Response::setRequest(Request* req){
     pRequest = req;
 }
 
+int Response::getWriter(){
+    return conFd;
+}
+
 
 void Response::sendStaticResource(){
     char fileBuffer[BUFFER_SIZE]; 
