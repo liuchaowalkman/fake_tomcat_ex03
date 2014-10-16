@@ -1,0 +1,79 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BUFFER_SIZE	Response.h	13;"	d
+HTTPSERVER_H_	HttpServer.h	10;"	d
+HttpConnector	HttpConnector.cpp	/^HttpConnector::HttpConnector(const char* cScheme = "http") : scheme(cScheme), stopped(false){$/;"	f	class:HttpConnector
+HttpConnector	HttpConnector.cpp	/^HttpConnector::HttpConnector(string str ) : scheme(str), stopped(false){$/;"	f	class:HttpConnector
+HttpConnector	HttpConnector.cpp	/^class HttpConnector : public Thread{$/;"	c	file:
+HttpServer	HttpServer.cpp	/^HttpServer::HttpServer():shutdown(false){$/;"	f	class:HttpServer
+HttpServer	HttpServer.h	/^class HttpServer{$/;"	c
+MAX_FILE_LEN	HttpServer.h	18;"	d
+MAX_FILE_LEN	Response.h	14;"	d
+OBJS	makefile	/^OBJS        := $(SRCS:.cpp=.o)  $/;"	m
+OBJS_DIR	makefile	/^OBJS_DIR    :=..\/obj$/;"	m
+OBJS_fullpath	makefile	/^OBJS_fullpath := $(addprefix $(OBJS_DIR)\/, $(OBJS))$/;"	m
+REQUEST_H_	Request.h	2;"	d
+RESPONSE_H_	Response.h	2;"	d
+Request	Request.cpp	/^Request::Request(int fd){$/;"	f	class:Request
+Request	Request.h	/^class Request{$/;"	c
+Response	Response.cpp	/^Response::Response(int fd){$/;"	f	class:Response
+Response	Response.h	/^class Response{$/;"	c
+SERVLETPROCESSOR_H_	ServletProcessor.h	2;"	d
+SERVLET_H_	Servlet.h	2;"	d
+SHUTDOWN_COMMAND	HttpServer.h	/^	private: static const string SHUTDOWN_COMMAND ;$/;"	m	class:HttpServer
+SRC_DIR	makefile	/^SRC_DIR    :=.$/;"	m
+STATICRESOURCEPROCESSOR_H_	StaticResourceProcessor.h	2;"	d
+Servlet	Servlet.h	/^class Servlet{$/;"	c
+ServletProcessor	ServletProcessor.h	/^class ServletProcessor{$/;"	c
+StaticResourceProcessor	StaticResourceProcessor.h	/^class StaticResourceProcessor{$/;"	c
+THREAD_H_	Thread.h	3;"	d
+TestThread	main.cpp	/^        TestThread(): name(false), pCont(0){};$/;"	f	class:TestThread
+TestThread	main.cpp	/^class TestThread: public Thread{$/;"	c	file:
+Thread	Thread.cpp	/^Thread::Thread() : $/;"	f	class:Thread
+Thread	Thread.h	/^class Thread{$/;"	c
+_threadLoop	Thread.cpp	/^void* Thread::_threadLoop(void* user){$/;"	f	class:Thread
+await	HttpServer.cpp	/^void HttpServer::await(){$/;"	f	class:HttpServer
+conFd	Request.h	/^    private: int conFd;$/;"	m	class:Request
+conFd	Response.h	/^        int conFd;$/;"	m	class:Response
+count	main.cpp	/^         static int count;$/;"	m	class:TestThread	file:
+count	main.cpp	/^int TestThread::count = 0;$/;"	m	class:TestThread	file:
+getScheme	HttpConnector.cpp	/^string HttpConnector::getScheme(){$/;"	f	class:HttpConnector
+getUri	Request.cpp	/^string Request::getUri(){$/;"	f	class:Request
+getWriter	Response.cpp	/^int Response::getWriter(){$/;"	f	class:Response
+mExitPending	Thread.h	/^        bool mExitPending;$/;"	m	class:Thread
+mRunning	Thread.h	/^        bool mRunning;$/;"	m	class:Thread
+mThread	Thread.h	/^        pthread_t mThread;$/;"	m	class:Thread
+main	main.cpp	/^int main(){$/;"	f
+name	main.cpp	/^        bool name ;$/;"	m	class:TestThread	file:
+pCont	main.cpp	/^         int pCont;$/;"	m	class:TestThread	file:
+pRequest	Response.h	/^        Request * pRequest;$/;"	m	class:Response
+parse	Request.cpp	/^void Request::parse(){$/;"	f	class:Request
+parseUri	Request.cpp	/^void Request:: parseUri(string strHttpReq){$/;"	f	class:Request
+process	ServletProcessor.cpp	/^void ServletProcessor::process(Request* request, Response* response){$/;"	f	class:ServletProcessor
+process	StaticResourceProcessor.cpp	/^void StaticResourceProcessor::process(Request* request, Response* response){$/;"	f	class:StaticResourceProcessor
+run	Thread.cpp	/^int Thread::run(){$/;"	f	class:Thread
+scheme	HttpConnector.cpp	/^        string scheme;$/;"	m	class:HttpConnector	file:
+sendStaticResource	Response.cpp	/^void Response::sendStaticResource(){$/;"	f	class:Response
+setRequest	Response.cpp	/^void Response::setRequest(Request* req){$/;"	f	class:Response
+setThreadName	Thread.cpp	/^void Thread::setThreadName(char* threadName){$/;"	f	class:Thread
+shutdown	HttpServer.h	/^			 bool shutdown ;$/;"	m	class:HttpServer
+start	Thread.cpp	/^void Thread::start(){$/;"	f	class:Thread
+stopped	HttpConnector.cpp	/^        bool stopped;$/;"	m	class:HttpConnector	file:
+target	makefile	/^target:=$(target_dir)\/main.exe$/;"	m
+target_dir	makefile	/^target_dir:=..\/bin$/;"	m
+threadLoop	HttpConnector.cpp	/^bool HttpConnector::threadLoop(){$/;"	f	class:HttpConnector
+threadLoop	main.cpp	/^bool TestThread::threadLoop(){$/;"	f	class:TestThread
+threadPrepare	Thread.cpp	/^int Thread::threadPrepare(){$/;"	f	class:Thread
+uri	Request.h	/^             string uri;$/;"	m	class:Request
+webRoot	HttpServer.h	/^	public:  static string webRoot; $/;"	m	class:HttpServer
+webRootGot	HttpServer.cpp	/^bool HttpServer::webRootGot = false;$/;"	m	class:HttpServer	file:
+webRootGot	HttpServer.h	/^             static bool webRootGot;$/;"	m	class:HttpServer
+~HttpConnector	HttpConnector.cpp	/^HttpConnector::~HttpConnector(){$/;"	f	class:HttpConnector
+~HttpServer	HttpServer.cpp	/^HttpServer::~HttpServer(){$/;"	f	class:HttpServer
+~Request	Request.cpp	/^Request::~Request(){$/;"	f	class:Request
+~Response	Response.cpp	/^Response::~Response(){$/;"	f	class:Response
+~Thread	Thread.cpp	/^Thread::~Thread(){ $/;"	f	class:Thread

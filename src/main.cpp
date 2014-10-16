@@ -1,15 +1,16 @@
 #include <stdio.h>
-#include "HttpServer.h"
-
-
+#include <sys/prctl.h>
+#include <unistd.h>
+#include "HttpConnector.h"
+#include "Constants.h"
 
 
 int main(){
     
-    HttpServer mHttpServer;
-    mHttpServer.await();
-	
-	
-	
-	return 0;
+    Constants::init();
+    HttpConnector connector ;
+    connector.start();
+    pthread_exit(NULL);
+//	return 0;
 }
+

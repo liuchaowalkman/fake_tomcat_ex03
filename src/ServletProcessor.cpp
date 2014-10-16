@@ -21,7 +21,7 @@ void ServletProcessor::process(Request* request, Response* response){
     
     
     if(NULL == (ServletHandle = dlopen(servletName.c_str(), RTLD_LAZY)))
-        {cerr << "dlopen error " << endl;  return ;}
+        {cerr << "dlopen error  path:" << servletName.c_str() << "error:" << dlerror() << endl;  return ;}
 
     
     void* (*getClass)();

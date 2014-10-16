@@ -6,7 +6,7 @@
 
 #include "Response.h"
 #include "Request.h"
-#include "HttpServer.h"
+#include "Constants.h"
 
 using namespace std;
 
@@ -33,7 +33,7 @@ void Response::sendStaticResource(){
     char fileBuffer[BUFFER_SIZE]; 
     int fileFd = -1;
     int n = 0;
-    string fileName(HttpServer::webRoot);
+    string fileName(Constants::webRoot);
 
     fileName.append(pRequest->getUri());
     cout << fileName << endl;
