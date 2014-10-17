@@ -7,10 +7,12 @@
 using namespace std;
 
 
-FdRead::FdRead (int fd){
-    this->input = fd;
+FdRead::FdRead (int fd): input(fd), disconnected(false){
 }
 
+bool FdRead::IsConnectionOff(){
+    return disconnected;
+}
 
 string FdRead::readAllString(){
 
@@ -21,13 +23,15 @@ string FdRead::readAllString(){
         cout << "FdRead in do while before"  << endl;
         memset (buf, 0, 2048);
         n = read (input, buf, 2048);
+        // if n == 0, that means disconnected.
         cout << "FdRead in do while, n = " << n << endl;
         if (n > 0){
 	        str.append(buf);
 	    }
     }while(n > 0 && 2048 == n);
     
-    cout << "FdRead return" << endl;
+    if(0 == n)  disconnected = true;
+    cout  << "FdRead return" << endl;
     return str;
 }
 

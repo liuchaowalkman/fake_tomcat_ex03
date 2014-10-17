@@ -16,7 +16,7 @@
 #include "HttpConnector.h"
 #include "Thread.h"
 #include "HttpProcessor.h"
-
+#include "ClientConnectionThread.h"
 
 
 
@@ -67,32 +67,12 @@ bool HttpConnector::threadLoop(){
         
         cout << "Httpconector::accept.    conFd = " << conFd << endl;
 
+        ClientConnectionThread* ct = new ClientConnectionThread(conFd, &processor); 
+        //processor.process(conFd);
+        ct->start();
 
-        processor.process(conFd);
-        
+        //close(conFd);
 
-        /*Request mRequest(conFd);
-        mRequest.parse();
-        
-        Response mResponse(conFd);
-        mResponse.setRequest(&mRequest);
-
-        if(0 == mRequest.getUri().find("/servlet/", 0)){
-            cout << "===========/servlet/===============" << endl;
-            ServletProcessor processor;
-            processor.process(&mRequest, &mResponse);
-
-        }else{
-            cout << "===========static resource===============" << endl;
-           // mResponse.sendStaticResource();
-            StaticResourceProcessor processor;
-            processor.process(&mRequest, &mResponse);
-        }*/
-
-
-        close(conFd);
-        //shutdown(conFd, SHUT_RDWR);
- //       shutdown = (0 == mRequest.getUri().compare(SHUTDOWN_COMMAND));
             
         
     }

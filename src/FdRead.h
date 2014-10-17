@@ -8,11 +8,13 @@ using namespace std;
 class FdRead{
     private:
         int input;
+        bool disconnected;
 
     public:
         FdRead (int);
         string readAllString ();
         int readData(char*, int);
+        bool IsConnectionOff();
 };
 
 #endif

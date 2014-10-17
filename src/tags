@@ -4,11 +4,14 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-BUFFER_SIZE	HttpResponse.h	11;"	d
+BUFFER_SIZE	HttpResponse.h	13;"	d
 BUFFER_SIZE	Response.h	13;"	d
 CONSTANTS_H_	Constants.h	3;"	d
 Constants	Constants.cpp	/^Constants::Constants(){$/;"	f	class:Constants
 Constants	Constants.h	/^ class Constants{$/;"	c
+DEBUG_PRINTER_H_	DebugPrinter.h	2;"	d
+DEBUG_PRINTER_PRINT_LN	DebugPrinter.h	8;"	d
+DebugPrinter	DebugPrinter.h	/^class DebugPrinter{$/;"	c
 FDREAD_H_	FdRead.h	3;"	d
 FD_WRITE_H_	FdWrite.h	3;"	d
 FdRead	FdRead.cpp	/^FdRead::FdRead (int fd){$/;"	f	class:FdRead
@@ -29,6 +32,7 @@ HttpRequest	HttpRequest.h	/^class HttpRequest{$/;"	c
 HttpRequestLine	HttpRequestLine.h	/^class HttpRequestLine{$/;"	c
 HttpResponse	HttpResponse.cpp	/^HttpResponse::HttpResponse(int fd): fdWrite(fd){$/;"	f	class:HttpResponse
 HttpResponse	HttpResponse.h	/^class HttpResponse{$/;"	c
+LOG_BUF_SIZE	DebugPrinter.cpp	12;"	d	file:
 MAX_FILE_LEN	Constants.h	11;"	d
 MAX_FILE_LEN	Response.h	14;"	d
 OBJS	makefile	/^OBJS        := $(SRCS:.cpp=.o)  $/;"	m
@@ -78,11 +82,14 @@ pRequest	Response.h	/^        Request * pRequest;$/;"	m	class:Response
 pResponse	HttpProcessor.h	/^            HttpResponse *pResponse;$/;"	m	class:HttpProcessor
 parse	Request.cpp	/^void Request::parse(){$/;"	f	class:Request
 parseUri	Request.cpp	/^void Request:: parseUri(string strHttpReq){$/;"	f	class:Request
+print	DebugPrinter.h	/^        DebugPrinter& print(T val){$/;"	f	class:DebugPrinter
+println	DebugPrinter.cpp	/^void DebugPrinter::println(const char* tag, const char* fmt,  ...){$/;"	f	class:DebugPrinter
 process	HttpProcessor.cpp	/^void HttpProcessor::process(int fd){$/;"	f	class:HttpProcessor
-process	ServletProcessor.cpp	/^void ServletProcessor::process(Request* request, Response* response){$/;"	f	class:ServletProcessor
-process	StaticResourceProcessor.cpp	/^void StaticResourceProcessor::process(Request* request, Response* response){$/;"	f	class:StaticResourceProcessor
+process	ServletProcessor.cpp	/^void ServletProcessor::process(HttpRequest* request, HttpResponse* response){$/;"	f	class:ServletProcessor
+process	StaticResourceProcessor.cpp	/^void StaticResourceProcessor::process(HttpRequest* request, HttpResponse* response){$/;"	f	class:StaticResourceProcessor
 protocol	HttpRequestLine.h	/^        string protocol;$/;"	m	class:HttpRequestLine
-readAll	FdRead.cpp	/^string FdRead::readAll (){$/;"	f	class:FdRead
+readAllString	FdRead.cpp	/^string FdRead::readAllString(){$/;"	f	class:FdRead
+readData	FdRead.cpp	/^int FdRead::readData(char* buf, int maxSize){$/;"	f	class:FdRead
 readRequestLine	HttpProcessor.cpp	/^void HttpProcessor::readRequestLine(){$/;"	f	class:HttpProcessor
 run	Thread.cpp	/^int Thread::run(){$/;"	f	class:Thread
 scheme	HttpConnector.h	/^        string scheme;$/;"	m	class:HttpConnector
@@ -99,6 +106,7 @@ setUri	HttpRequest.cpp	/^void HttpRequest::setUri(string uri){$/;"	f	class:HttpR
 start	Thread.cpp	/^void Thread::start(){$/;"	f	class:Thread
 stopped	HttpConnector.h	/^        bool stopped;$/;"	m	class:HttpConnector
 strRequest	HttpProcessor.h	/^            string strRequest;$/;"	m	class:HttpProcessor
+strTag	DebugPrinter.h	/^        string strTag;$/;"	m	class:DebugPrinter
 target	makefile	/^target:=$(target_dir)\/main.exe$/;"	m
 target_dir	makefile	/^target_dir:=..\/bin$/;"	m
 threadLoop	HttpConnector.cpp	/^bool HttpConnector::threadLoop(){$/;"	f	class:HttpConnector
@@ -106,7 +114,9 @@ threadPrepare	Thread.cpp	/^int Thread::threadPrepare(){$/;"	f	class:Thread
 uri	HttpRequestLine.h	/^        string uri;$/;"	m	class:HttpRequestLine
 uri	Request.h	/^             string uri;$/;"	m	class:Request
 webRoot	Constants.h	/^        static  string webRoot;$/;"	m	class:Constants
+write	FdWrite.cpp	/^void FdWrite::write(char* outBuf, int maxSize){$/;"	f	class:FdWrite
 write	FdWrite.cpp	/^void FdWrite::write(string outStr){$/;"	f	class:FdWrite
+write	HttpResponse.cpp	/^void HttpResponse::write(string str){$/;"	f	class:HttpResponse
 ~HttpConnector	HttpConnector.cpp	/^HttpConnector::~HttpConnector(){$/;"	f	class:HttpConnector
 ~HttpResponse	HttpResponse.cpp	/^HttpResponse::~HttpResponse(){$/;"	f	class:HttpResponse
 ~Request	Request.cpp	/^Request::~Request(){$/;"	f	class:Request
