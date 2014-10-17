@@ -24,7 +24,7 @@ void Request::parse(){
         //do{ 
             memset(buf, 0, 2048);
             n = read(conFd, buf, 2048 );
-            cout << buf ;
+            cout << buf << "|bufend|" << endl;
         //}while( /*48 == n */  n != -1 && n != 0); 
         
         

@@ -9,7 +9,7 @@ using namespace std;
 
 
 
-void ServletProcessor::process(Request* request, Response* response){
+void ServletProcessor::process(HttpRequest* request, HttpResponse* response){
     string uri = request->getUri();
 
     string servletName = uri.substr(uri.find_last_of("/") + 1);

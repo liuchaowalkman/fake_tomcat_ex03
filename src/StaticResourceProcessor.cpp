@@ -5,7 +5,7 @@
 
 
 
-void StaticResourceProcessor::process(Request* request, Response* response){
+void StaticResourceProcessor::process(HttpRequest* request, HttpResponse* response){
     response->sendStaticResource(); 
     return;
 }

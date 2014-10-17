@@ -14,7 +14,7 @@ class PrimitiveServlet : public Servlet{
         ~PrimitiveServlet();
         
         virtual void init() ;
-        virtual void service(Request*, Response*);
+        virtual void service(HttpRequest*, HttpResponse*);
         virtual void destroy();
 };
 
@@ -29,20 +29,20 @@ void PrimitiveServlet::init(){
     cout << "init" << endl; 
 }
 
-void PrimitiveServlet::service(Request* request, Response* response){
+void PrimitiveServlet::service(HttpRequest* request, HttpResponse* response){
 
     cout << "service" << endl; 
-    int mWriter = response->getWriter();
+ //   int mWriter = response->getWriter();
 
-    unsigned int n = -1;
-    char wBuf[2048];
-    memset(wBuf, 0, 2048);
+   // unsigned int n = -1;
+   // char wBuf[2048];
+   // memset(wBuf, 0, 2048);
 
-    char const * sent = "Hello. Roses are red.";
+   // char const * sent =  "Hello. Roses are red.";
+    string strWrite("Hello. Roses are red.");
 
 
-
-    sent  =     "<html>"
+    strWrite  =     "<html>"
                     "<head>"
                         "<title>the first html</title>"
                     "</head>"
@@ -52,13 +52,13 @@ void PrimitiveServlet::service(Request* request, Response* response){
                     "</body>"
                 "</html>";
 
+    response->write(strWrite);
 
-
-    memcpy(wBuf, sent, strlen(sent) + 1);
+   /* memcpy(wBuf, sent, strlen(sent) + 1);
     n = write(mWriter, wBuf, strlen(sent) + 1);
     if(n != strlen(sent) +1){
         cerr << "send less than giving" << endl;
-    }
+    }*/
     return;
     
 }

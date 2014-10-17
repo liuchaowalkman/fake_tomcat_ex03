@@ -4,14 +4,32 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BUFFER_SIZE	HttpResponse.h	11;"	d
 BUFFER_SIZE	Response.h	13;"	d
-HTTPSERVER_H_	HttpServer.h	10;"	d
-HttpConnector	HttpConnector.cpp	/^HttpConnector::HttpConnector(const char* cScheme = "http") : scheme(cScheme), stopped(false){$/;"	f	class:HttpConnector
+CONSTANTS_H_	Constants.h	3;"	d
+Constants	Constants.cpp	/^Constants::Constants(){$/;"	f	class:Constants
+Constants	Constants.h	/^ class Constants{$/;"	c
+FDREAD_H_	FdRead.h	3;"	d
+FD_WRITE_H_	FdWrite.h	3;"	d
+FdRead	FdRead.cpp	/^FdRead::FdRead (int fd){$/;"	f	class:FdRead
+FdRead	FdRead.h	/^class FdRead{$/;"	c
+FdWrite	FdWrite.cpp	/^FdWrite::FdWrite(int fd){$/;"	f	class:FdWrite
+FdWrite	FdWrite.h	/^class FdWrite{$/;"	c
+HTTPCONNECTOR_H_	HttpProcessor.h	5;"	d
+HTTPCONNETOR_H_	HttpConnector.h	3;"	d
+HTTPREQUESTLINE_H_	HttpRequestLine.h	4;"	d
+HTTP_REQUEST_H_	HttpRequest.h	3;"	d
+HTTP_RESPONSE_H_	HttpResponse.h	2;"	d
+HttpConnector	HttpConnector.cpp	/^HttpConnector::HttpConnector(const char* cScheme ) : scheme(cScheme), stopped(false){$/;"	f	class:HttpConnector
 HttpConnector	HttpConnector.cpp	/^HttpConnector::HttpConnector(string str ) : scheme(str), stopped(false){$/;"	f	class:HttpConnector
-HttpConnector	HttpConnector.cpp	/^class HttpConnector : public Thread{$/;"	c	file:
-HttpServer	HttpServer.cpp	/^HttpServer::HttpServer():shutdown(false){$/;"	f	class:HttpServer
-HttpServer	HttpServer.h	/^class HttpServer{$/;"	c
-MAX_FILE_LEN	HttpServer.h	18;"	d
+HttpConnector	HttpConnector.h	/^class HttpConnector : public Thread{$/;"	c
+HttpProcessor	HttpProcessor.cpp	/^HttpProcessor::HttpProcessor(HttpConnector* connector): pResponse(NULL), pRequest(NULL){$/;"	f	class:HttpProcessor
+HttpProcessor	HttpProcessor.h	/^class HttpProcessor{$/;"	c
+HttpRequest	HttpRequest.h	/^class HttpRequest{$/;"	c
+HttpRequestLine	HttpRequestLine.h	/^class HttpRequestLine{$/;"	c
+HttpResponse	HttpResponse.cpp	/^HttpResponse::HttpResponse(int fd): fdWrite(fd){$/;"	f	class:HttpResponse
+HttpResponse	HttpResponse.h	/^class HttpResponse{$/;"	c
+MAX_FILE_LEN	Constants.h	11;"	d
 MAX_FILE_LEN	Response.h	14;"	d
 OBJS	makefile	/^OBJS        := $(SRCS:.cpp=.o)  $/;"	m
 OBJS_DIR	makefile	/^OBJS_DIR    :=..\/obj$/;"	m
@@ -24,56 +42,73 @@ Response	Response.cpp	/^Response::Response(int fd){$/;"	f	class:Response
 Response	Response.h	/^class Response{$/;"	c
 SERVLETPROCESSOR_H_	ServletProcessor.h	2;"	d
 SERVLET_H_	Servlet.h	2;"	d
-SHUTDOWN_COMMAND	HttpServer.h	/^	private: static const string SHUTDOWN_COMMAND ;$/;"	m	class:HttpServer
 SRC_DIR	makefile	/^SRC_DIR    :=.$/;"	m
 STATICRESOURCEPROCESSOR_H_	StaticResourceProcessor.h	2;"	d
 Servlet	Servlet.h	/^class Servlet{$/;"	c
 ServletProcessor	ServletProcessor.h	/^class ServletProcessor{$/;"	c
 StaticResourceProcessor	StaticResourceProcessor.h	/^class StaticResourceProcessor{$/;"	c
 THREAD_H_	Thread.h	3;"	d
-TestThread	main.cpp	/^        TestThread(): name(false), pCont(0){};$/;"	f	class:TestThread
-TestThread	main.cpp	/^class TestThread: public Thread{$/;"	c	file:
 Thread	Thread.cpp	/^Thread::Thread() : $/;"	f	class:Thread
 Thread	Thread.h	/^class Thread{$/;"	c
 _threadLoop	Thread.cpp	/^void* Thread::_threadLoop(void* user){$/;"	f	class:Thread
-await	HttpServer.cpp	/^void HttpServer::await(){$/;"	f	class:HttpServer
 conFd	Request.h	/^    private: int conFd;$/;"	m	class:Request
 conFd	Response.h	/^        int conFd;$/;"	m	class:Response
-count	main.cpp	/^         static int count;$/;"	m	class:TestThread	file:
-count	main.cpp	/^int TestThread::count = 0;$/;"	m	class:TestThread	file:
+connector	HttpProcessor.h	/^            HttpConnector* connector;$/;"	m	class:HttpProcessor
+destroy	Constants.cpp	/^void Constants::destroy(){$/;"	f	class:Constants
+fdWrite	HttpResponse.h	/^        FdWrite fdWrite;$/;"	m	class:HttpResponse
+getMethod	HttpRequest.cpp	/^string HttpRequest::getMethod(){$/;"	f	class:HttpRequest
+getProtocol	HttpRequest.cpp	/^string HttpRequest::getProtocol(){$/;"	f	class:HttpRequest
 getScheme	HttpConnector.cpp	/^string HttpConnector::getScheme(){$/;"	f	class:HttpConnector
+getUri	HttpRequest.cpp	/^string HttpRequest::getUri(){$/;"	f	class:HttpRequest
 getUri	Request.cpp	/^string Request::getUri(){$/;"	f	class:Request
 getWriter	Response.cpp	/^int Response::getWriter(){$/;"	f	class:Response
+httpRequestLine	HttpProcessor.h	/^            HttpRequestLine  httpRequestLine;$/;"	m	class:HttpProcessor
+httpRequestLine	HttpRequest.h	/^        HttpRequestLine httpRequestLine;$/;"	m	class:HttpRequest
+init	Constants.cpp	/^void Constants::init(){$/;"	f	class:Constants
+input	FdRead.h	/^        int input;$/;"	m	class:FdRead
 mExitPending	Thread.h	/^        bool mExitPending;$/;"	m	class:Thread
 mRunning	Thread.h	/^        bool mRunning;$/;"	m	class:Thread
 mThread	Thread.h	/^        pthread_t mThread;$/;"	m	class:Thread
 main	main.cpp	/^int main(){$/;"	f
-name	main.cpp	/^        bool name ;$/;"	m	class:TestThread	file:
-pCont	main.cpp	/^         int pCont;$/;"	m	class:TestThread	file:
+method	HttpRequestLine.h	/^        string method;$/;"	m	class:HttpRequestLine
+output	FdWrite.h	/^        int output;$/;"	m	class:FdWrite
+pRequest	HttpProcessor.h	/^            HttpRequest *pRequest;$/;"	m	class:HttpProcessor
+pRequest	HttpResponse.h	/^        HttpRequest *pRequest;$/;"	m	class:HttpResponse
 pRequest	Response.h	/^        Request * pRequest;$/;"	m	class:Response
+pResponse	HttpProcessor.h	/^            HttpResponse *pResponse;$/;"	m	class:HttpProcessor
 parse	Request.cpp	/^void Request::parse(){$/;"	f	class:Request
 parseUri	Request.cpp	/^void Request:: parseUri(string strHttpReq){$/;"	f	class:Request
+process	HttpProcessor.cpp	/^void HttpProcessor::process(int fd){$/;"	f	class:HttpProcessor
 process	ServletProcessor.cpp	/^void ServletProcessor::process(Request* request, Response* response){$/;"	f	class:ServletProcessor
 process	StaticResourceProcessor.cpp	/^void StaticResourceProcessor::process(Request* request, Response* response){$/;"	f	class:StaticResourceProcessor
+protocol	HttpRequestLine.h	/^        string protocol;$/;"	m	class:HttpRequestLine
+readAll	FdRead.cpp	/^string FdRead::readAll (){$/;"	f	class:FdRead
+readRequestLine	HttpProcessor.cpp	/^void HttpProcessor::readRequestLine(){$/;"	f	class:HttpProcessor
 run	Thread.cpp	/^int Thread::run(){$/;"	f	class:Thread
-scheme	HttpConnector.cpp	/^        string scheme;$/;"	m	class:HttpConnector	file:
+scheme	HttpConnector.h	/^        string scheme;$/;"	m	class:HttpConnector
+self	Constants.cpp	/^Constants* Constants::self = NULL;$/;"	m	class:Constants	file:
+self	Constants.h	/^        static Constants* self;$/;"	m	class:Constants
+sendStaticResource	HttpResponse.cpp	/^void HttpResponse::sendStaticResource(){$/;"	f	class:HttpResponse
 sendStaticResource	Response.cpp	/^void Response::sendStaticResource(){$/;"	f	class:Response
+setMethod	HttpRequest.cpp	/^void HttpRequest::setMethod(string method){$/;"	f	class:HttpRequest
+setProtocol	HttpRequest.cpp	/^void HttpRequest::setProtocol(string protocol){$/;"	f	class:HttpRequest
+setRequest	HttpResponse.cpp	/^void HttpResponse::setRequest(HttpRequest* req){$/;"	f	class:HttpResponse
 setRequest	Response.cpp	/^void Response::setRequest(Request* req){$/;"	f	class:Response
 setThreadName	Thread.cpp	/^void Thread::setThreadName(char* threadName){$/;"	f	class:Thread
-shutdown	HttpServer.h	/^			 bool shutdown ;$/;"	m	class:HttpServer
+setUri	HttpRequest.cpp	/^void HttpRequest::setUri(string uri){$/;"	f	class:HttpRequest
 start	Thread.cpp	/^void Thread::start(){$/;"	f	class:Thread
-stopped	HttpConnector.cpp	/^        bool stopped;$/;"	m	class:HttpConnector	file:
+stopped	HttpConnector.h	/^        bool stopped;$/;"	m	class:HttpConnector
+strRequest	HttpProcessor.h	/^            string strRequest;$/;"	m	class:HttpProcessor
 target	makefile	/^target:=$(target_dir)\/main.exe$/;"	m
 target_dir	makefile	/^target_dir:=..\/bin$/;"	m
 threadLoop	HttpConnector.cpp	/^bool HttpConnector::threadLoop(){$/;"	f	class:HttpConnector
-threadLoop	main.cpp	/^bool TestThread::threadLoop(){$/;"	f	class:TestThread
 threadPrepare	Thread.cpp	/^int Thread::threadPrepare(){$/;"	f	class:Thread
+uri	HttpRequestLine.h	/^        string uri;$/;"	m	class:HttpRequestLine
 uri	Request.h	/^             string uri;$/;"	m	class:Request
-webRoot	HttpServer.h	/^	public:  static string webRoot; $/;"	m	class:HttpServer
-webRootGot	HttpServer.cpp	/^bool HttpServer::webRootGot = false;$/;"	m	class:HttpServer	file:
-webRootGot	HttpServer.h	/^             static bool webRootGot;$/;"	m	class:HttpServer
+webRoot	Constants.h	/^        static  string webRoot;$/;"	m	class:Constants
+write	FdWrite.cpp	/^void FdWrite::write(string outStr){$/;"	f	class:FdWrite
 ~HttpConnector	HttpConnector.cpp	/^HttpConnector::~HttpConnector(){$/;"	f	class:HttpConnector
-~HttpServer	HttpServer.cpp	/^HttpServer::~HttpServer(){$/;"	f	class:HttpServer
+~HttpResponse	HttpResponse.cpp	/^HttpResponse::~HttpResponse(){$/;"	f	class:HttpResponse
 ~Request	Request.cpp	/^Request::~Request(){$/;"	f	class:Request
 ~Response	Response.cpp	/^Response::~Response(){$/;"	f	class:Response
 ~Thread	Thread.cpp	/^Thread::~Thread(){ $/;"	f	class:Thread

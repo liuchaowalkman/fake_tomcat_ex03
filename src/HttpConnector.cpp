@@ -1,19 +1,21 @@
 
 #include <iostream>
 #include <string>
+#include <unistd.h>
 #include <stdio.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <arpa/inet.h>
 #include <string.h>
 
-#include "Request.h"
-#include "Response.h"
+#include "HttpRequest.h"
+#include "HttpResponse.h"
 #include "ServletProcessor.h"
 #include "StaticResourceProcessor.h"
 
 #include "HttpConnector.h"
 #include "Thread.h"
+#include "HttpProcessor.h"
 
 
 
@@ -41,6 +43,8 @@ bool HttpConnector::threadLoop(){
     int listenFd ;
     int const port = 8080;
     int const maxConCount = 1;
+    
+    HttpProcessor processor(this);
 
     cout << "Httpconector::run.  " << endl;
     listenFd =  socket(AF_INET, SOCK_STREAM, 0);
@@ -63,7 +67,11 @@ bool HttpConnector::threadLoop(){
         
         cout << "Httpconector::accept.    conFd = " << conFd << endl;
 
-        Request mRequest(conFd);
+
+        processor.process(conFd);
+        
+
+        /*Request mRequest(conFd);
         mRequest.parse();
         
         Response mResponse(conFd);
@@ -79,11 +87,11 @@ bool HttpConnector::threadLoop(){
            // mResponse.sendStaticResource();
             StaticResourceProcessor processor;
             processor.process(&mRequest, &mResponse);
-        }
+        }*/
 
 
         close(conFd);
-
+        //shutdown(conFd, SHUT_RDWR);
  //       shutdown = (0 == mRequest.getUri().compare(SHUTDOWN_COMMAND));
             
         

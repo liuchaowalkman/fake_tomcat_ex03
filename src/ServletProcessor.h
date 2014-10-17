@@ -2,13 +2,13 @@
 #define  SERVLETPROCESSOR_H_ 
 
 
-#include "Request.h"
-#include "Response.h"
+#include "HttpRequest.h"
+#include "HttpResponse.h"
 
 
 class ServletProcessor{
     public:
-        virtual void process(Request*, Response*);
+        virtual void process(HttpRequest*, HttpResponse*);
 };
 
 #endif
